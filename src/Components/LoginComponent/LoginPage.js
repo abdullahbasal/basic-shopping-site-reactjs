@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Col,
   Container,
@@ -7,9 +7,10 @@ import {
   Row,
   Button,
   Label,
-} from "reactstrap";
-import "./LoginPage.css";
-export default function LoginPage() {
+} from 'reactstrap';
+import './LoginPage.css';
+import Popup from 'reactjs-popup';
+export default function LoginPage(props) {
   return (
     <Container>
       <Col>
@@ -31,11 +32,21 @@ export default function LoginPage() {
           </Label>
         </Row>
         <br />
-        <Button color="primary">Login</Button>
+        <Button color="primary" onClick={() => props.onHome()}>
+          Login
+        </Button>
         <br />
         <br />
-        <Button color="success">Register</Button>
+        <Button color="success" onClick={() => props.onRegister()}>
+          Register
+        </Button>
       </Col>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </Container>
   );
 }

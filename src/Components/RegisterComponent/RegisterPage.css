@@ -7,3 +7,13 @@
   text-align: center;
   margin-top: 30px;
 }
+#return-img {
+  margin-right: 10px;
+  display: inline-block;
+}
+#return-back {
+  cursor: pointer;
+}
+#return-back:hover {
+  text-decoration: underline;
+}

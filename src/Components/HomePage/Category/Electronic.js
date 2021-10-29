@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   ListGroupItem,
   Card,
@@ -8,10 +8,11 @@ import {
   CardSubtitle,
   CardText,
   Button,
-} from "reactstrap";
+} from 'reactstrap';
+import './Electronic.css';
 export default function Electronic(props) {
   const electronicCategory = props.products.filter(
-    (item) => item.category === "electronics"
+    (item) => item.category === 'electronics'
   );
   console.log(electronicCategory);
 
@@ -20,14 +21,22 @@ export default function Electronic(props) {
       {electronicCategory.map((item, index) => (
         <ListGroupItem>
           <Card id="card">
-            <CardImg top width="100%" src={item.image} alt="Card image cap" />
+            <div id="card-img-area">
+              <CardImg
+                id="card-img"
+                top
+                width="100%"
+                src={item.image}
+                alt="Card image cap"
+              />
+            </div>
             <CardBody>
               <CardTitle tag="h5">{item.name}</CardTitle>
               <CardSubtitle tag="h6" className="mb-2 text-muted">
                 {item.description}
               </CardSubtitle>
-              <CardText>Kaynak: {item.source}</CardText>
-              <Button href={item.url}>Yazının Devamını Oku...</Button>
+              <CardText>Price: {item.price}</CardText>
+              <Button color="success">Buy</Button>
             </CardBody>
           </Card>
         </ListGroupItem>
