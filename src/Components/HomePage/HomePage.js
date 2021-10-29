@@ -13,7 +13,7 @@ import {
   UncontrolledCarousel,
 } from 'reactstrap';
 import './HomePage.css';
-export default function HomePage() {
+export default function HomePage(props) {
   const [products, setProducts] = useState([]);
 
   const getProducts = () => {
@@ -29,7 +29,7 @@ export default function HomePage() {
   useEffect(() => {
     getProducts();
     return () => {};
-  }, []);
+  }, [props.pageMode]);
 
   console.log(products);
   const items = [

@@ -6,9 +6,32 @@ export default function RegisterPage(props) {
   const [database, setDatabase] = useState([
     { name: 'admin', email: '', password: 1234 },
   ]);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   function handleChangeName(e) {
-    setContent(e.target.value);
+    setName(e.target.value);
   }
+  function handleChangeEmail(e) {
+    setEmail(e.target.value);
+  }
+  function handleChangePassword(e) {
+    setPassword(e.target.value);
+  }
+  function addDatabase() {
+    const tempDatabase = database;
+    setDatabase([
+      ...tempDatabase,
+      { name: name, email: email, password: password },
+    ]);
+    name = '';
+  }
+  console.log(name);
+  console.log(email);
+
+  console.log(password);
+
   return (
     <Container>
       <Row>
@@ -17,7 +40,8 @@ export default function RegisterPage(props) {
             name="nameCustomMessage"
             label="Name"
             type="text"
-            onChane={handleChangeName}
+            onChange={handleChangeName}
+            value={name}
             validate={{
               required: { value: true, errorMessage: 'Please enter a name' },
               pattern: {
@@ -43,7 +67,8 @@ export default function RegisterPage(props) {
             label="Email validate"
             type="email"
             validate={{ match: { value: 'originalEmail' } }}
-            onChane={handleChangeEmail}
+            onChange={handleChangeEmail}
+            value={email}
           />
           <br />
           <p id="password">Password</p>
@@ -51,10 +76,11 @@ export default function RegisterPage(props) {
             type="password"
             label="Password"
             placeholder="password"
-            onChane={handleChangePassword}
+            onChange={handleChangePassword}
+            value={password}
           />
           <br />
-          <Button color="success" onClick={() => setDatabase()}>
+          <Button color="success" onClick={() => addDatabase()}>
             Register
           </Button>
         </AvForm>

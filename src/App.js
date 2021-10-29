@@ -9,6 +9,8 @@ function App() {
 
   return (
     <Container>
+      <Col id="home-page">{pageMode === 'home' && <HomePage></HomePage>}</Col>
+
       <Row>
         <Col id="login-register-page" sm="12" md={{ size: 6, offset: 3 }}>
           {pageMode === 'login' && (
@@ -22,7 +24,6 @@ function App() {
           )}
         </Col>
       </Row>
-      {pageMode === 'home' && <HomePage></HomePage>}
     </Container>
   );
 }

@@ -9,7 +9,6 @@ import {
   Label,
 } from 'reactstrap';
 import './LoginPage.css';
-import Popup from 'reactjs-popup';
 export default function LoginPage(props) {
   return (
     <Container>
